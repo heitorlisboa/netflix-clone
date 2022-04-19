@@ -1,0 +1,39 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+
+  &__container {
+    background-image: linear-gradient(
+      to bottom,
+      var(--neutral-color-900-transparent) 10%,
+      transparent
+    );
+
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.main-title {
+  width: clamp(5rem, 10vw + 1rem, 7.5rem);
+}
+
+.nav {
+  font-size: 0.9rem;
+
+  display: flex;
+  gap: 1rem;
+
+  a:not(.active) {
+    color: var(--neutral-color-200);
+
+    &:hover {
+      color: var(--neutral-color-300);
+    }
+  }
+
+  a.active {
+    font-weight: 600;
+  }
+}
