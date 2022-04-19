@@ -1,0 +1,10 @@
+{
+  "name": "netflix-clone",
+  "version": "0.1.0",
+  "author": "heitorlisboa <heitor01101000@gmail.com>",
+  "repository": "https://github.com/heitorlisboa/netflix-clone.git",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "dev": "sass --watch assets/scss/index.scss assets/css/index.css"
+  }
+}
