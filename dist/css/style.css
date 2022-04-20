@@ -151,6 +151,11 @@ a {
 .header {
   position: fixed;
   inset: 0 0 auto;
+  z-index: 2;
+  transition: background-color 200ms ease;
+}
+.header--dark {
+  background-color: var(--neutral-color-900);
 }
 .header__container {
   background-image: linear-gradient(to bottom, var(--neutral-color-900-transparent) 10%, transparent);
@@ -163,21 +168,97 @@ a {
   width: clamp(5rem, 10vw + 1rem, 7.5rem);
 }
 
-.nav {
+.nav__list {
   font-size: 0.9rem;
   display: flex;
   gap: 1rem;
 }
-.nav a:not(.active) {
+.nav__list a:not(.active) {
   color: var(--neutral-color-200);
 }
-.nav a:not(.active):hover {
+.nav__list a:not(.active):hover {
   color: var(--neutral-color-300);
 }
-.nav a.active {
+.nav__list a.active {
   font-weight: 600;
 }
 
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .header__container {
+    justify-content: space-between;
+  }
+
+  .nav {
+    background-color: hsla(0deg, 0%, 0%, 0.97);
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: 70%;
+    min-width: 15rem;
+    padding-block: 4rem;
+    padding-inline: 2rem 1rem;
+    box-shadow: -5rem 0 10rem black;
+  }
+  @supports (backdrop-filter: blur(1rem)) {
+    .nav {
+      background-color: var(--neutral-color-900-transparent);
+      backdrop-filter: blur(1rem);
+    }
+  }
+  .nav[data-visible=false] {
+    display: none;
+  }
+  .nav[data-visible=true] {
+    animation: slide-in 200ms forwards;
+  }
+  .nav[data-closing] {
+    animation: slide-out 200ms forwards;
+  }
+  .nav::before {
+    content: "";
+    position: absolute;
+    inset: 0 100% 0 auto;
+    width: 100vw;
+  }
+  .nav__list {
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .nav-toggle {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    z-index: 2;
+  }
+  .nav-toggle[aria-expanded=true] {
+    background-image: url("../../../dist/icons/close.svg");
+  }
+  .nav-toggle[aria-expanded=false] {
+    background-image: url("../../../dist/icons/menu.svg");
+  }
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
 .hero {
   display: grid;
 }

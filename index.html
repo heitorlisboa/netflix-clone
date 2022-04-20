@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <header class="header">
+    <header class="header" data-header>
       <div class="container header__container">
         <h1 class="main-title">
           <a href="/">
@@ -29,8 +29,8 @@
           </a>
         </h1>
 
-        <nav>
-          <ul class="nav">
+        <nav class="nav" data-nav data-visible="false">
+          <ul class="nav__list">
             <li><a class="active" href="/">Início</a></li>
             <li><a href="#">Séries</a></li>
             <li><a href="#">Filmes</a></li>
@@ -38,6 +38,10 @@
             <li><a href="#">Minha lista</a></li>
           </ul>
         </nav>
+
+        <button class="nav-toggle" aria-expanded="false" data-mobile-nav-toggle>
+          <span class="sr-only">Abrir/fechar navegação</span>
+        </button>
       </div>
     </header>
 

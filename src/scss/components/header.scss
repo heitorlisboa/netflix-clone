@@ -1,6 +1,15 @@
+$-z-index: 2;
+
 .header {
   position: fixed;
   inset: 0 0 auto;
+  z-index: $-z-index;
+
+  transition: background-color 200ms ease;
+
+  &--dark {
+    background-color: var(--neutral-color-900);
+  }
 
   &__container {
     background-image: linear-gradient(
@@ -20,20 +29,113 @@
 }
 
 .nav {
-  font-size: 0.9rem;
+  &__list {
+    font-size: 0.9rem;
 
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 
-  a:not(.active) {
-    color: var(--neutral-color-200);
+    a:not(.active) {
+      color: var(--neutral-color-200);
 
-    &:hover {
-      color: var(--neutral-color-300);
+      &:hover {
+        color: var(--neutral-color-300);
+      }
+    }
+
+    a.active {
+      font-weight: 600;
+    }
+  }
+}
+
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .header__container {
+    justify-content: space-between;
+  }
+
+  .nav {
+    background-color: hsla(0, 0%, 0%, 0.97);
+
+    @supports (backdrop-filter: blur(1rem)) {
+      background-color: var(--neutral-color-900-transparent);
+      backdrop-filter: blur(1rem);
+    }
+
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: 70%;
+    min-width: 15rem;
+
+    padding-block: 4rem;
+    padding-inline: 2rem 1rem;
+    box-shadow: -5rem 0 10rem black;
+
+    $-animation-config: 200ms forwards;
+
+    &[data-visible="false"] {
+      display: none;
+    }
+
+    &[data-visible="true"] {
+      animation: slide-in $-animation-config;
+    }
+
+    &[data-closing] {
+      animation: slide-out $-animation-config;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0 100% 0 auto;
+      width: 100vw;
+    }
+
+    &__list {
+      flex-direction: column;
+      width: 50%;
     }
   }
 
-  a.active {
-    font-weight: 600;
+  .nav-toggle {
+    $-size: 2rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    display: block;
+    width: $-size;
+    height: $-size;
+    z-index: $-z-index;
+
+    &[aria-expanded="true"] {
+      background-image: url("../../../dist/icons/close.svg");
+    }
+
+    &[aria-expanded="false"] {
+      background-image: url("../../../dist/icons/menu.svg");
+    }
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
   }
 }
