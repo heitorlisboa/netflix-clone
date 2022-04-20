@@ -10,4 +10,6 @@
 
 .container {
   padding: 1rem clamp(1rem, 4vw + 0.1rem, 3rem);
+  width: min(100%, 80rem);
+  margin-inline: auto;
 }
