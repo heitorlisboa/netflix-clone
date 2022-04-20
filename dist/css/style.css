@@ -253,4 +253,38 @@ a {
   background-color: rgba(102, 102, 102, 0.5);
 }
 
+.movie-section {
+  display: grid;
+  gap: 1rem;
+}
+.movie-section--first {
+  margin-top: calc(clamp(4rem, 10vw + 1rem, 8rem) * -1);
+}
+
+.slider {
+  position: relative;
+}
+.slider:hover {
+  cursor: grab;
+}
+.slider:active {
+  cursor: grabbing;
+}
+.slider::before, .slider::after {
+  content: "";
+  background-image: linear-gradient(var(--direction), var(--neutral-color-900-transparent), transparent);
+  position: absolute;
+  inset: 0 var(--right, auto) 0 var(--left, auto);
+  width: 50px;
+}
+.slider::before {
+  --left: -1px;
+  --direction: to right;
+  z-index: 1;
+}
+.slider::after {
+  --right: -1px;
+  --direction: to left;
+}
+
 /*# sourceMappingURL=style.css.map */

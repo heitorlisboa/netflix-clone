@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.min.css"
+    />
     <link rel="shortcut icon" href="dist/img/n-logo.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="dist/css/style.css" />
     <title>Netflix Clone</title>
@@ -66,6 +70,54 @@
           </div>
         </div>
       </section>
+
+      <section class="movie-section movie-section--first container" aria-labelledby="trending">
+        <h3 id="trending">Em alta</h3>
+        <ul class="keen-slider slider" data-slider>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-free-guy.jpg"
+              alt="Free Guy: Assumindo o Controle"
+            />
+          </li>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-demon-slayer-mugen-train.jpg"
+              alt="Demon Slayer - Mugen Train: O Filme"
+            />
+          </li>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-kingsman-servico-secreto.jpg"
+              alt="Kingsman: Serviço Secreto"
+            />
+          </li>
+          <li class="keen-slider__slide">
+            <img src="dist/img/posters/poster-cruella.jpg" alt="Cruella" />
+          </li>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-sonic-2.jpg"
+              alt="Sonic 2: O Filme"
+            />
+          </li>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-viuva-negra.jpg"
+              alt="Viúva Negra"
+            />
+          </li>
+          <li class="keen-slider__slide">
+            <img
+              src="dist/img/posters/poster-interestelar.jpg"
+              alt="Interestelar"
+            />
+          </li>
+        </ul>
+      </section>
     </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/keen-slider@latest/keen-slider.js"></script>
+    <script src="dist/js/main.js"></script>
   </body>
 </html>

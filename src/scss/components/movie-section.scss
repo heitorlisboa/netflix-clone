@@ -1,0 +1,45 @@
+.movie-section {
+  display: grid;
+  gap: 1rem;
+
+  &--first {
+    margin-top: calc(clamp(4rem, 10vw + 1rem, 8rem) * -1);
+  }
+}
+
+.slider {
+  position: relative;
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    background-image: linear-gradient(
+      var(--direction),
+      var(--neutral-color-900-transparent),
+      transparent
+    );
+
+    position: absolute;
+    inset: 0 var(--right, auto) 0 var(--left, auto);
+    width: 50px;
+  }
+
+  &::before {
+    --left: -1px;
+    --direction: to right;
+    z-index: 1;
+  }
+
+  &::after {
+    --right: -1px;
+    --direction: to left;
+  }
+}
