@@ -5,6 +5,6 @@
   "repository": "https://github.com/heitorlisboa/netflix-clone.git",
   "license": "GPL-3.0-only",
   "scripts": {
-    "dev": "sass --watch assets/scss/index.scss assets/css/index.css"
+    "dev": "sass --watch src/scss/index.scss dist/css/style.css"
   }
 }
