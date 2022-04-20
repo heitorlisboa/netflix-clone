@@ -176,4 +176,76 @@ a {
   font-weight: 600;
 }
 
+.hero {
+  display: grid;
+}
+.hero__image-wrapper, .hero__content {
+  grid-column: 1;
+  grid-row: 1;
+}
+.hero__image-wrapper {
+  position: relative;
+  z-index: -1;
+  user-select: none;
+}
+.hero__image-wrapper > img {
+  object-fit: cover;
+  object-position: 70%;
+  min-height: 100%;
+}
+.hero__image-wrapper .left-vignette {
+  background-image: linear-gradient(to right, var(--neutral-color-900-transparent), transparent);
+  position: absolute;
+  inset: 0 auto;
+  width: 50%;
+}
+.hero__image-wrapper .bottom-vignette {
+  background-image: linear-gradient(to top, var(--neutral-color-900), transparent);
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 30%;
+}
+.hero__content {
+  display: grid;
+  gap: 1rem;
+  height: fit-content;
+  max-width: 40rem;
+  padding-top: clamp(4rem, 10vw + 1rem, 8rem);
+}
+.hero__title, .hero__synopsis {
+  text-shadow: 2px 2px 4px var(--neutral-color-900-transparent);
+}
+.hero__title {
+  font-size: clamp(2rem, 5vw + 1rem, 4rem);
+}
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button {
+  font-weight: 600;
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+}
+
+.button--primary {
+  color: black;
+  background-color: white;
+}
+.button--primary:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.button--secondary {
+  color: white;
+  background-color: rgba(102, 102, 102, 0.75);
+}
+.button--secondary:hover {
+  background-color: rgba(102, 102, 102, 0.5);
+}
+
 /*# sourceMappingURL=style.css.map */

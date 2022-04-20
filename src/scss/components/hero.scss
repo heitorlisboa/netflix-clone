@@ -1,0 +1,70 @@
+.hero {
+  display: grid;
+
+  &__image-wrapper,
+  &__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    z-index: -1;
+
+    user-select: none;
+
+    & > img {
+      object-fit: cover;
+      object-position: 70%;
+      min-height: 100%;
+    }
+
+    & .left-vignette {
+      background-image: linear-gradient(
+        to right,
+        var(--neutral-color-900-transparent),
+        transparent
+      );
+
+      position: absolute;
+      inset: 0 auto;
+      width: 50%;
+    }
+
+    & .bottom-vignette {
+      background-image: linear-gradient(
+        to top,
+        var(--neutral-color-900),
+        transparent
+      );
+
+      position: absolute;
+      inset: auto 0 -1px;
+      height: 30%;
+    }
+  }
+
+  &__content {
+    display: grid;
+    gap: 1rem;
+    height: fit-content;
+    max-width: 40rem;
+
+    padding-top: clamp(4rem, 10vw + 1rem, 8rem);
+  }
+
+  &__title,
+  &__synopsis {
+    text-shadow: 2px 2px 4px var(--neutral-color-900-transparent);
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw + 1rem, 4rem);
+  }
+
+  &__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
